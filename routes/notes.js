@@ -12,9 +12,27 @@ notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-// post route to add notes to db.json
+// GET Route for a specific note
+// notes.get('/:note_id', (req, res) => {
+//     const noteId = req.params.note_id;
+
+//     readFromFile('./db/db.json')
+//         .then((data) => JSON.parse(data))
+//         .then((json) => {
+//             const result = json.filter((note) => note.note_id === noteId);
+
+//             return result.length > 0
+//                 ? res.json(result)
+//                 : res.json('No note with that ID');
+//         });
+// });
+
+
+
+// POST route for /api/notes
 notes.post('/', (req, res) => {
-    console.log(req.body);
+    console.log(req);
+    console.log('test');
 
     const { title, text } = req.body;
 

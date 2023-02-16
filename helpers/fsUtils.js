@@ -1,5 +1,5 @@
 const fs = require('fs');
-const util = require('util');
+const util = require('util'); // this line is for using the promisify method
 
 // Promise version of fs.readFile
 const readFromFile = util.promisify(fs.readFile);
