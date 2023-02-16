@@ -5,10 +5,20 @@ const path = require("path");
 const api = require("./Routes/index");
 const PORT = 3001;
 
-// Default route to serve up the index.html page
-app.get("/", (req, res) =>
-    res.sendFile(path.join(__dirname, "./public/index.html"))
-);
+
+
+app.use(express.static("public")); // This is the folder that will serve up the static files
+
+// Middleware for parsing JSON and urlencoded form data
+app.use(express.urlencoded({ extended: true })); // this line is for parsing form data
+app.use(express.json()); // this line is for parsing json data
+
+
+
+
+
+
+
 
 
 
